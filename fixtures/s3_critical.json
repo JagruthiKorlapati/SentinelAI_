@@ -1,0 +1,22 @@
+{
+  "name": "S3_critical_human_review",
+  "incident": {
+    "asset": "CUSTOMER-DB-01",
+    "asset_criticality": "CRITICAL",
+    "threat_type": "DATA_EXFILTRATION",
+    "severity": "CRITICAL",
+    "data_involved": "customer_pii"
+  },
+  "agents": [
+    {"agent": "ThreatDetection", "action": "ISOLATE", "target": "CUSTOMER-DB-01", "reason": "Active data exfiltration in progress", "confidence": 0.62, "risk_level": "CRITICAL", "raw_text": "Cut the database off the network now."},
+    {"agent": "Forensics", "action": "PRESERVE_EVIDENCE", "target": "CUSTOMER-DB-01", "reason": "Exfiltration trail needed for legal case", "confidence": 0.58, "risk_level": "CRITICAL", "raw_text": "Preserve all logs before any change."},
+    {"agent": "Backup", "action": "KEEP_ONLINE", "target": "CUSTOMER-DB-01", "reason": "Backup is mid-run and would be corrupted", "confidence": 0.55, "risk_level": "HIGH", "raw_text": "Do not interrupt the running backup."},
+    {"agent": "BusinessContinuity", "action": "KEEP_ONLINE", "target": "CUSTOMER-DB-01", "reason": "Core customer service depends on this database", "confidence": 0.70, "risk_level": "CRITICAL", "raw_text": "Taking this offline stops all customer services."}
+  ],
+  "expected": {
+    "conflict": true,
+    "conflict_types": ["ACTION", "PRIORITY", "POLICY", "OBJECTIVE"],
+    "hard_block": false,
+    "risk_level": "CRITICAL"
+  }
+}

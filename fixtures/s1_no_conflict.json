@@ -1,0 +1,22 @@
+{
+  "name": "S1_no_conflict",
+  "incident": {
+    "asset": "WEB-SERVER-02",
+    "asset_criticality": "LOW",
+    "threat_type": "SUSPICIOUS_LOGIN",
+    "severity": "LOW",
+    "data_involved": "none"
+  },
+  "agents": [
+    {"agent": "ThreatDetection", "action": "MONITOR", "target": "WEB-SERVER-02", "reason": "Single failed login burst, low severity", "confidence": 0.88, "risk_level": "LOW", "raw_text": "Keep monitoring the server."},
+    {"agent": "Forensics", "action": "MONITOR", "target": "WEB-SERVER-02", "reason": "No evidence of compromise", "confidence": 0.90, "risk_level": "LOW", "raw_text": "Nothing to collect yet, continue monitoring."},
+    {"agent": "Backup", "action": "CONTINUE", "target": "WEB-SERVER-02", "reason": "Scheduled backup is healthy", "confidence": 0.92, "risk_level": "LOW", "raw_text": "Continue the normal backup schedule."},
+    {"agent": "BusinessContinuity", "action": "CONTINUE", "target": "WEB-SERVER-02", "reason": "No service impact", "confidence": 0.95, "risk_level": "LOW", "raw_text": "Keep the service running as normal."}
+  ],
+  "expected": {
+    "conflict": false,
+    "conflict_types": [],
+    "hard_block": false,
+    "risk_level": "LOW"
+  }
+}
