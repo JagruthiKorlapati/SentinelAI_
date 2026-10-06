@@ -1,0 +1,6 @@
+# Thresholds for the decision engine. Documented starting values, not validated ones.
+critical_action_sensitivity: CRITICAL
+high_risk_level: HIGH
+human_review_min_risk: CRITICAL
+auto_execute_max_risk: LOW
+min_average_confidence: 0.6
