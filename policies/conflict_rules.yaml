@@ -1,0 +1,12 @@
+# ACTION: two recommended actions cannot both happen
+incompatible_pairs: [[ISOLATE, KEEP_ONLINE], [ISOLATE, CONTINUE], [DELETE_DATA, PRESERVE_EVIDENCE], [DELETE_DATA, KEEP_ONLINE], [DELETE_DATA, CONTINUE]]
+
+# PRIORITY: an urgent action is recommended together with actions that must come first
+priority: {urgent_actions: [ISOLATE, DELETE_DATA], prerequisite_actions: [PRESERVE_EVIDENCE, COMPLETE_BACKUP]}
+
+# OBJECTIVE: a containment-focused agent clashes with an uptime-focused agent
+objective: {agent_objectives: {ThreatDetection: CONTAINMENT, Forensics: EVIDENCE, Backup: RECOVERY, BusinessContinuity: UPTIME}, containment_actions: [ISOLATE, DELETE_DATA], uptime_actions: [KEEP_ONLINE, CONTINUE]}
+
+# Severity: 1 type = LOW, 2 = MEDIUM, 3+ = HIGH, bumped one level (max HIGH)
+# if the asset criticality is in this list or a hard block fired
+severity: {bump_if_asset_criticality: [HIGH, CRITICAL]}

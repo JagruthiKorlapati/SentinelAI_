@@ -1,0 +1,3 @@
+level_scores: {LOW: 10, MEDIUM: 40, HIGH: 80, CRITICAL: 100}
+policy_scores: {hard_block: 100, requires_approval: 70, violations_only: 40, none: 0}
+disagreement_scores: {0: 0, 1: 40, 2: 70, 3: 90, 4: 100}

@@ -1,0 +1,15 @@
+# Weights must sum to 1.0
+weights:
+  threat_severity: 0.25
+  business_impact: 0.20
+  policy_severity: 0.15
+  action_sensitivity: 0.15
+  uncertainty: 0.10
+  agent_disagreement: 0.15
+
+# Score bands
+bands:
+  LOW: 30
+  MEDIUM: 60
+  HIGH: 80
+  CRITICAL: 100

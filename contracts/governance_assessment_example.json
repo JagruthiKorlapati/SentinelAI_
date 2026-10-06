@@ -1,0 +1,62 @@
+{
+  "conflict": true,
+  "conflict_types": [
+    "ACTION",
+    "PRIORITY",
+    "OBJECTIVE"
+  ],
+  "conflict_severity": "HIGH",
+  "risk_score": 62,
+  "risk_level": "HIGH",
+  "action_sensitivity": "HIGH",
+  "policy_results": {
+    "hard_block": false,
+    "requires_approval": false,
+    "violations": []
+  },
+  "authority": {
+    "ThreatDetection": "HIGH",
+    "Forensics": "HIGH",
+    "Backup": "MEDIUM",
+    "BusinessContinuity": "MEDIUM"
+  },
+  "trust": {
+    "ThreatDetection": 0.91,
+    "Forensics": 0.96,
+    "Backup": 0.87,
+    "BusinessContinuity": 0.9
+  },
+  "trust_note": "demo-calibrated, not statistically robust",
+  "risk_breakdown": {
+    "threat_severity": {
+      "value": 80,
+      "weight": 0.25,
+      "contribution": 20
+    },
+    "business_impact": {
+      "value": 80,
+      "weight": 0.2,
+      "contribution": 16
+    },
+    "policy_severity": {
+      "value": 0,
+      "weight": 0.15,
+      "contribution": 0
+    },
+    "action_sensitivity": {
+      "value": 80,
+      "weight": 0.15,
+      "contribution": 12
+    },
+    "uncertainty": {
+      "value": 8.25,
+      "weight": 0.1,
+      "contribution": 1
+    },
+    "agent_disagreement": {
+      "value": 90,
+      "weight": 0.15,
+      "contribution": 13
+    }
+  }
+}

@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from governance_api import router as governance_router
 
 from orchestrator import analyse_incident
 from scenarios import SCENARIOS
+
 
 app = FastAPI(title="Cyber Incident Agents API")
 
@@ -13,7 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+app.include_router(governance_router)
 
 class IncidentRequest(BaseModel):
     text: str = Field(default="", max_length=2000)

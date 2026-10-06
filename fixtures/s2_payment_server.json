@@ -1,0 +1,22 @@
+{
+  "name": "S2_payment_server_malware",
+  "incident": {
+    "asset": "PAYMENT-SERVER-01",
+    "asset_criticality": "HIGH",
+    "threat_type": "MALWARE",
+    "severity": "HIGH",
+    "data_involved": "payment_records"
+  },
+  "agents": [
+    {"agent": "ThreatDetection", "action": "ISOLATE", "target": "PAYMENT-SERVER-01", "reason": "Critical malware detected", "confidence": 0.94, "risk_level": "HIGH", "raw_text": "Immediate containment of the payment server is recommended."},
+    {"agent": "Forensics", "action": "PRESERVE_EVIDENCE", "target": "PAYMENT-SERVER-01", "reason": "Memory and logs must be captured before changes", "confidence": 0.96, "risk_level": "HIGH", "raw_text": "Capture evidence before any isolation."},
+    {"agent": "Backup", "action": "COMPLETE_BACKUP", "target": "PAYMENT-SERVER-01", "reason": "Last backup is 6 hours old", "confidence": 0.87, "risk_level": "MEDIUM", "raw_text": "Finish a fresh backup checkpoint first."},
+    {"agent": "BusinessContinuity", "action": "KEEP_ONLINE", "target": "PAYMENT-SERVER-01", "reason": "Peak transaction hours, revenue at risk", "confidence": 0.90, "risk_level": "HIGH", "raw_text": "Keep the payment server online to avoid downtime."}
+  ],
+  "expected": {
+    "conflict": true,
+    "conflict_types": ["ACTION", "PRIORITY", "OBJECTIVE"],
+    "hard_block": false,
+    "risk_level": "HIGH"
+  }
+}

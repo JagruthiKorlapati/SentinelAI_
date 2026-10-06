@@ -1,0 +1,7 @@
+# Consequence table per asset criticality. Values are risk levels (lower is better).
+# These are documented starting values, not validated ones.
+# policy: APPROVAL_REQUIRED matches policies.yaml (isolating a CRITICAL asset needs a human).
+LOW: {IMMEDIATE_ISOLATION: {security: LOW, evidence: MEDIUM, business: LOW, policy: VALID}, WAIT: {security: MEDIUM, evidence: LOW, business: LOW, policy: VALID}, CONTROLLED_RESPONSE: {security: LOW, evidence: LOW, business: LOW, policy: VALID}}
+MEDIUM: {IMMEDIATE_ISOLATION: {security: LOW, evidence: HIGH, business: MEDIUM, policy: VALID}, WAIT: {security: HIGH, evidence: LOW, business: LOW, policy: VALID}, CONTROLLED_RESPONSE: {security: LOW, evidence: LOW, business: LOW, policy: VALID}}
+HIGH: {IMMEDIATE_ISOLATION: {security: LOW, evidence: HIGH, business: HIGH, policy: VALID}, WAIT: {security: CRITICAL, evidence: LOW, business: MEDIUM, policy: VALID}, CONTROLLED_RESPONSE: {security: LOW, evidence: LOW, business: MEDIUM, policy: VALID}}
+CRITICAL: {IMMEDIATE_ISOLATION: {security: LOW, evidence: HIGH, business: CRITICAL, policy: APPROVAL_REQUIRED}, WAIT: {security: CRITICAL, evidence: LOW, business: HIGH, policy: VALID}, CONTROLLED_RESPONSE: {security: LOW, evidence: LOW, business: HIGH, policy: APPROVAL_REQUIRED}}
