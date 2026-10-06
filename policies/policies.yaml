@@ -1,0 +1,18 @@
+# Mandatory rules. These outrank confidence and trust. No majority voting.
+
+# Actions that are never allowed to run automatically
+hard_block_actions:
+  - DELETE_DATA
+
+# Actions that need a human to approve first
+requires_approval_actions:
+  - SHUTDOWN
+
+# Assets where isolating needs human approval
+requires_approval_if_asset_criticality:
+  ISOLATE: [CRITICAL]
+
+# Actions that need evidence preserved before they run
+evidence_required_before:
+  - ISOLATE
+  - DELETE_DATA

@@ -1,0 +1,13 @@
+# Domain authority per agent (demo-calibrated, not learned)
+authority:
+  ThreatDetection: HIGH
+  Forensics: HIGH
+  Backup: MEDIUM
+  BusinessContinuity: MEDIUM
+
+# Static trust values, shown in the UI as "demo-calibrated"
+trust:
+  ThreatDetection: 0.91
+  Forensics: 0.96
+  Backup: 0.87
+  BusinessContinuity: 0.90

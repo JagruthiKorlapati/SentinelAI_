@@ -1,0 +1,133 @@
+{
+  "incident_id": "INC-005",
+  "decision": "HUMAN_REVIEW",
+  "why_review_needed": [
+    "Mandatory policy requires a human to approve a recommended action before it runs."
+  ],
+  "reason_codes": [
+    "APPROVAL_REQUIRED"
+  ],
+  "incident": {
+    "asset": "PATIENT-RECORDS-SYS",
+    "asset_criticality": "CRITICAL",
+    "threat_type": "MALWARE",
+    "severity": "HIGH",
+    "data_involved": "patient_health_records"
+  },
+  "agent_recommendations": [
+    {
+      "agent": "ThreatDetection",
+      "action": "ISOLATE",
+      "target": "PATIENT-RECORDS-SYS",
+      "reason": "Malware spreading on the records system",
+      "confidence": 0.92,
+      "risk_level": "HIGH"
+    },
+    {
+      "agent": "Forensics",
+      "action": "PRESERVE_EVIDENCE",
+      "target": "PATIENT-RECORDS-SYS",
+      "reason": "Healthcare breach needs a full evidence trail",
+      "confidence": 0.95,
+      "risk_level": "HIGH"
+    },
+    {
+      "agent": "Backup",
+      "action": "COMPLETE_BACKUP",
+      "target": "PATIENT-RECORDS-SYS",
+      "reason": "Restore point must be confirmed",
+      "confidence": 0.88,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "agent": "BusinessContinuity",
+      "action": "KEEP_ONLINE",
+      "target": "PATIENT-RECORDS-SYS",
+      "reason": "Clinicians need records for patients in care",
+      "confidence": 0.93,
+      "risk_level": "CRITICAL"
+    }
+  ],
+  "conflict_types": [
+    "ACTION",
+    "PRIORITY",
+    "POLICY",
+    "OBJECTIVE"
+  ],
+  "conflict_severity": "HIGH",
+  "risk_score": 78,
+  "risk_level": "HIGH",
+  "risk_breakdown": {
+    "threat_severity": {
+      "value": 80,
+      "weight": 0.25,
+      "contribution": 20
+    },
+    "business_impact": {
+      "value": 100,
+      "weight": 0.2,
+      "contribution": 20
+    },
+    "policy_severity": {
+      "value": 70,
+      "weight": 0.15,
+      "contribution": 10
+    },
+    "action_sensitivity": {
+      "value": 80,
+      "weight": 0.15,
+      "contribution": 12
+    },
+    "uncertainty": {
+      "value": 8.0,
+      "weight": 0.1,
+      "contribution": 1
+    },
+    "agent_disagreement": {
+      "value": 100,
+      "weight": 0.15,
+      "contribution": 15
+    }
+  },
+  "violations": [
+    {
+      "rule": "APPROVAL_REQUIRED_CRITICAL_ASSET",
+      "agent": "ThreatDetection",
+      "action": "ISOLATE",
+      "detail": "ISOLATE on a CRITICAL asset needs human approval"
+    }
+  ],
+  "what_if_options": [
+    {
+      "option": "IMMEDIATE_ISOLATION",
+      "security": "LOW",
+      "evidence": "HIGH",
+      "business": "CRITICAL",
+      "policy": "APPROVAL_REQUIRED"
+    },
+    {
+      "option": "WAIT",
+      "security": "CRITICAL",
+      "evidence": "LOW",
+      "business": "HIGH",
+      "policy": "VALID"
+    },
+    {
+      "option": "CONTROLLED_RESPONSE",
+      "security": "LOW",
+      "evidence": "LOW",
+      "business": "HIGH",
+      "policy": "APPROVAL_REQUIRED"
+    }
+  ],
+  "suggested_action": {
+    "agent": "Forensics",
+    "action": "PRESERVE_EVIDENCE",
+    "confidence": 0.95
+  },
+  "explanation": "",
+  "allowed_choices": [
+    "APPROVE",
+    "REJECT"
+  ]
+}

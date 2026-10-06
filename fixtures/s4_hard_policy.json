@@ -1,0 +1,22 @@
+{
+  "name": "S4_hard_policy_block",
+  "incident": {
+    "asset": "FILE-SERVER-03",
+    "asset_criticality": "HIGH",
+    "threat_type": "RANSOMWARE",
+    "severity": "HIGH",
+    "data_involved": "shared_documents"
+  },
+  "agents": [
+    {"agent": "ThreatDetection", "action": "DELETE_DATA", "target": "FILE-SERVER-03", "reason": "Wipe infected files to stop spread", "confidence": 0.91, "risk_level": "HIGH", "raw_text": "Delete the infected data immediately."},
+    {"agent": "Forensics", "action": "PRESERVE_EVIDENCE", "target": "FILE-SERVER-03", "reason": "Infected files are the evidence", "confidence": 0.93, "risk_level": "HIGH", "raw_text": "Do not delete anything, keep the files."},
+    {"agent": "Backup", "action": "COMPLETE_BACKUP", "target": "FILE-SERVER-03", "reason": "Clean backup needed before changes", "confidence": 0.85, "risk_level": "MEDIUM", "raw_text": "Take a backup first."},
+    {"agent": "BusinessContinuity", "action": "CONTINUE", "target": "FILE-SERVER-03", "reason": "Teams need the shared files", "confidence": 0.80, "risk_level": "MEDIUM", "raw_text": "Keep the file server running."}
+  ],
+  "expected": {
+    "conflict": true,
+    "conflict_types": ["ACTION", "PRIORITY", "POLICY", "OBJECTIVE"],
+    "hard_block": true,
+    "risk_level": "CRITICAL"
+  }
+}
