@@ -4,3 +4,4 @@ high_risk_level: HIGH
 human_review_min_risk: CRITICAL
 auto_execute_max_risk: LOW
 min_average_confidence: 0.6
+human_review_threats: [INSIDER_THREAT]

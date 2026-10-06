@@ -66,6 +66,10 @@ def decide(agent_outputs, incident, assessment, rules=None):
             return result("CONTROLLED_RESPONSE", ["COORDINATED_SEQUENCE_FOUND", seq["reason"]], seq["steps"])
         return result("HUMAN_REVIEW", ["UNRESOLVED_CONFLICT", seq["reason"]])
 
+    # 6b. Threat types that always need a human, even at low risk
+    if incident.get("threat_type") in rules.get("human_review_threats", []):
+        return result("HUMAN_REVIEW", ["THREAT_TYPE_NEEDS_HUMAN"])
+
     # 7. No conflict, low risk
     if not _at_least(risk_level, "MEDIUM") or LEVELS.index(risk_level) <= LEVELS.index(rules["auto_execute_max_risk"]):
         return result("AUTO_EXECUTE", ["AUTO_EXECUTE_LOW_RISK"])
